@@ -20,7 +20,7 @@ class AppFixtures extends Fixture
         $produit1 = new Produit();
         $produit1->setNom('café moulue');
         $produit1->setDescription('Café Parisien de très bonne qualité');
-        $produit1->setImage('images/coffee1.jpg');
+        $produit1->setImage('img/coffee1.jpg');
         $produit1->setStock('40');
         $manager -> persist($produit1); 
 
@@ -37,7 +37,7 @@ class AppFixtures extends Fixture
         $produit2 = new Produit();
         $produit2->setNom('cafetière');
         $produit2->setDescription('Cafetière à piston');
-        $produit2->setImage('images/cafetiere-piston');
+        $produit2->setImage('img/cafetiere-piston-bodum-chambord-3-tasses.jpg');
         $produit2->setStock('200');
         $manager -> persist($produit2); 
 
@@ -57,7 +57,6 @@ class AppFixtures extends Fixture
         $Commentaire3 -> setProduit($produit2);
         $manager -> persist($Commentaire3); 
 
-
         //commentaire 4 lier produit 2
         $Commentaire4= new Commentaire();
         $Commentaire4-> setTitre('j\adore !');
@@ -70,7 +69,7 @@ class AppFixtures extends Fixture
         $produit3 = new Produit();
         $produit3->setNom('cuillère dosette à café');
         $produit3->setDescription('Cuillère pour doser vos meilleurs cafés ');
-        $produit3->setImage('images/cuillere-mesure.webp');
+        $produit3->setImage('img/cuillere-mesure.webp');
         $produit3->setStock('200');
         $manager -> persist($produit3); 
 
@@ -92,30 +91,28 @@ class AppFixtures extends Fixture
 
 
         $produit4 = new Produit();
-        $produit4->setNom('cafetière');
-        $produit4->setDescription('Cafetière à piston');
-        $produit4->setImage('images/cafetiere-piston');
-        $produit4->setStock('200');
-        $manager -> persist($produit2); 
+        $produit4->setNom('mug');
+        $produit4->setDescription('Mug pour déguster vos délicieux cafés');
+        $produit4->setImage('img/Mug.png');
+        $produit4->setStock('500');
+        $manager -> persist($produit4); 
 
 
         $produit5 = new Produit();
-        $produit5->setNom('cuillère à café');
-        $produit5->setDescription('Cette cuillère vous servira à doser votre cofé pour le préparer avec soin');
-        $produit5->setImage('public/images/cuillere-mesure.webp');
-        $produit5->setStock('350');
-        $manager -> persist($produit1); 
-        $Commentaire3 = new Commentaire();
-        $Commentaire3 -> setTitre('Simple d\utilisation !');
-        $Commentaire3 -> setContenue('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum, turpis vel tempus dignissim, nisl mauris lacinia eros, ut mattis odio lorem eget magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus nec pharetra lectus.');
-        $Commentaire1 -> setProduit($produit2);
-        $manager -> persist($Commentaire2); 
+        $produit5->setNom('café arabica');
+        $produit5->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum, turpis vel tempus dignissim, nisl mauris lacinia eros, ut mattis odio lorem eget magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus nec phare');
+        $produit5->setImage('img/coffee-bean.png');
+        $produit5->setStock('100');
+        $manager -> persist($produit5);
+
+        $produit6 = new Produit();
+        $produit6->setNom('Pateau café');
+        $produit6->setDescription('jolie plateau pour vos pauses café');
+        $produit6->setImage('img/plateau-café.png');
+        $produit6->setStock('150');
+        $manager -> persist($produit6);
 
         $manager -> flush();
-        
-
-
-        
 
 
 }

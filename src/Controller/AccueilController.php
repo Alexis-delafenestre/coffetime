@@ -6,7 +6,7 @@ use App\Entity\Produit;
 use App\Entity\Commentaire;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use App\Security\CustomAuthenticationSuccessHandler;
 use ContainerFOAKfMN\getAjoutProduitService;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -18,14 +18,18 @@ use Doctrine\ORM\Mapping as ORM;
 
 class AccueilController extends AbstractController
 {
+
     #[Route('/accueil', name: 'homepage')]
-    public function index(): Response
+    public function index(EntityManagerInterface $entityManager): Response // Utiliser EntityManager injecté
     {
-        
+        $produit = $entityManager->getRepository(Produit::class)->findBy([], ['id' => 'DESC'], 5);
+
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
+                'produit'=> $produit,
         ]);
     }
+
 
 
     //               route vers liste produits 
@@ -42,17 +46,17 @@ class AccueilController extends AbstractController
 
 
 
-    #[Route('/produit/{id}', name: 'details_produit')]
+    #[Route('/produit/{id}', name: 'info-produit')]
     public function detailsProduit(EntityManagerInterface $entityManager, $id): Response
     {
         $produitRepository = $entityManager->getRepository(Produit::class);
         $produit = $produitRepository->find($id);
 
-        $commentaire = $produit->getCommentaire();
+    
 
         return $this->render('accueil/infoProduit.html.twig', [
             'produit' => $produit,
-            'commentaire' => $commentaire,
+            
         ]);
     }
 

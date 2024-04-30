@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccueilController!{% endblock %}
-
-
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 
@@ -11,11 +9,17 @@
     </div>
 
     <div class="dernier_prd">
-    <h2>Les 5 derniers produits</h2>
+        <h2>Les 5 derniers produits</h2>   
     </div>
-
-    
-
-
+        
+    <div class="cinq-prd">
+        {% for produit in produit %}
+            <div class="produit">
+                <img src="{{ asset(produit.image) }}" alt="{{ produit.nom }}">
+                <h3>{{ produit.nom }}</h3>
+                <p>{{ produit.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
 
 {% endblock %}
