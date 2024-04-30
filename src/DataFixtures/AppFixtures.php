@@ -91,14 +91,19 @@ class AppFixtures extends Fixture
         $manager -> persist($Commentaire6); 
 
 
+        $produit4 = new Produit();
+        $produit4->setNom('cafetière');
+        $produit4->setDescription('Cafetière à piston');
+        $produit4->setImage('images/cafetiere-piston');
+        $produit4->setStock('200');
+        $manager -> persist($produit2); 
 
 
-
-        $produit3 = new Produit();
-        $produit3->setNom('cuillère à café');
-        $produit3->setDescription('Cette cuillère vous servira à doser votre cofé pour le préparer avec soin');
-        $produit3->setImage('public/images/cuillere-mesure.webp');
-        $produit3->setStock('350');
+        $produit5 = new Produit();
+        $produit5->setNom('cuillère à café');
+        $produit5->setDescription('Cette cuillère vous servira à doser votre cofé pour le préparer avec soin');
+        $produit5->setImage('public/images/cuillere-mesure.webp');
+        $produit5->setStock('350');
         $manager -> persist($produit1); 
         $Commentaire3 = new Commentaire();
         $Commentaire3 -> setTitre('Simple d\utilisation !');
