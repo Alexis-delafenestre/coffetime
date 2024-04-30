@@ -31,7 +31,6 @@ class AccueilController extends AbstractController
     }
 
 
-
     //               route vers liste produits 
     #[Route('/liste-produits', name: 'liste_produits')]
     public function listeproduits (EntityManagerInterface $entityManager): Response
@@ -58,35 +57,6 @@ class AccueilController extends AbstractController
             
         ]);
     }
-
-
-    #[Route('/produit/{id}/ajout-commentaire', name: 'ajout_commentaire', methods: ['POST'])]
-    public function addComment(Request $request, EntityManagerInterface $entityManager, $id): Response
-    {
-        $produit = $entityManager->getRepository(Produit::class)->find($id);
-
-        $titre = $request->request->get('titre');
-        $contenu = $request->request->get('contenu');
-
-        if (empty($titre) || empty($contenu)) {
-            $this->addFlash('error', 'Veuillez remplir tous les champs s\'il vous plaît.');
-    
-            return $this->redirectToRoute('details_produit', ['id' => $id]);
-        } else {
-        $commentaire = new Commentaire();
-        $commentaire->setTitre($titre);
-        $commentaire->setContenue($contenu);
-        $commentaire->setProduit($produit);
-
-        $entityManager->persist($commentaire);
-        $entityManager->flush();
-
-        $this->addFlash('success', 'Commentaire ajouté avec succès.');
-
-        return $this->redirectToRoute('details_produit', ['id' => $id]);
-        }
-    }
-
 
     
 }

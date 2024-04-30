@@ -1,17 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccueilController!{% endblock %}
+{% block title %}info produit{% endblock %}
 
 {% block body %}
 
-<div class="example-wrapper">
+
     <h1>Informations du produit</h1>
+
     <div class="product-info">
+
         <div class="product-details">
-            <p><strong>Nom du produit :</strong> {{ produit.nom }}</p>
-            <p><strong>Description du produit :</strong> {{ produit.description }}</p>
-            <p><strong>Nombre actuellement en stock :</strong> {{ produit.stock }}</p>
+
+            <p><strong>Nom produit : {{ produit.nom }}</p>
+            <p><strong>Description produit </strong> {{ produit.description }}</p>
+            <p><strong>stock actuelle</strong> {{ produit.stock }}</p>
         </div>
+        
         <div class="product-image-infos">
             {% if produit.image %}
                 <img src="{{ asset(produit.image) }}" alt="Image du produit {{ produit.nom }}">
@@ -20,7 +24,7 @@
             {% endif %}
         </div>
     </div>
-</div>
+
 
 
 {% endblock %}

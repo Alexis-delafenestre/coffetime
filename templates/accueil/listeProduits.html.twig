@@ -10,11 +10,15 @@
 
 <div class="tous-prd">
         {% for produit in tousProduits %}
-            <div class="produit">
-                <img src="{{ asset(produit.image) }}" alt="{{ produit.nom }}">
-                <h3>{{ produit.nom }}</h3>
-                <p>{{ produit.description }}</p>
-            </div>
+         
+                <div class="produit">
+                    <a href=" {{ path ('info-produit', {id : produit.id}) }}">
+                    <img src="{{ asset(produit.image) }}" alt="{{ produit.nom }}">  
+                    </a>
+                    <h3>{{ produit.nom }}</h3>
+                    <p>{{ produit.description }}</p>
+                </div>
+          
         {% endfor %}
     </div>
     
