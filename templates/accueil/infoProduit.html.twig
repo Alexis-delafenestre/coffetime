@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}info produit{% endblock %}
+{% block title %}Liste des produits{% endblock %}
+
 
 {% block body %}
+
 
 
     <h1>Informations du produit</h1>
@@ -10,8 +12,7 @@
     <div class="product-info">
 
         <div class="product-details">
-
-            <p><strong>Nom produit : {{ produit.nom }}</p>
+            <p><strong>Nom produit :</strong> {{ produit.nom }}</p>
             <p><strong>Description produit </strong> {{ produit.description }}</p>
             <p><strong>stock actuelle</strong> {{ produit.stock }}</p>
         </div>
